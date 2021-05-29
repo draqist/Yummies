@@ -1,20 +1,21 @@
 import React from 'react'
-import {View,Text,StyleSheet} from 'react-native'
+import {View,Text,StyleSheet, ImageBackground} from 'react-native'
 
 const Center = ({children}) => {
     return (
-        <View style={styles.container}> 
+        <View style={styles.container}>
+            
             {children}
         </View>
 )}
 
 const styles = StyleSheet.create({
     container: {
-        width:'100%',
+        width: '100%',
+        //backgroundColor: 'yellow',
         flex: 1,
         alignItems: 'center',
-        padding:50
-        //justifyContent: 'center',
+        justifyContent: 'center',
     }
 })
 

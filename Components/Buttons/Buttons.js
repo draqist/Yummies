@@ -5,16 +5,17 @@ import ButtonContainer from './ButtonContainer'
 const Buttons = ({type, content}) => {
     const backgroundColor = type === 'primary' ? 'orange' : 'transparent'
     //const textColor = 'type' === 'primary' ? 'white' :'white'
+    const borderColor = type === 'secondary' ? 'white' : 'transparent'
     return (
-        <ButtonContainer>
+       /* <ButtonContainer>
 
+        </ButtonContainer>*/
             <View style = {styles.container}>
-                <Pressable style  = {[styles.pressable, {backgroundColor:backgroundColor} ]}>
+                <Pressable style  = {[styles.pressable, {backgroundColor:backgroundColor}, {borderColor:borderColor} ]}>
                     <Text style={styles.text}> { content }</Text>
                 </Pressable>
             </View>
             
-        </ButtonContainer>
        
 )}
 const styles = StyleSheet.create({
@@ -26,7 +27,8 @@ const styles = StyleSheet.create({
         height: 40,
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 10
+        borderRadius: 8,
+        borderWidth: 1.2
     },
     text: {
         fontSize: 30,
