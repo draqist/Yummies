@@ -1,8 +1,7 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground } from 'react-native'
 import Center from './Center'
 import Buttons from '../Components/Buttons/Buttons'
-import * as Animatable from 'react-native-animatable'
 
 export const Welcome = ({navigation}) => {
     return (
@@ -12,8 +11,8 @@ export const Welcome = ({navigation}) => {
                 <Text style = {styles.text}> tubhub </Text>
             </Center>
             <View style={styles.container}>
-                <Buttons type='primary' content='Log In' onPress={() => {navigation.navigate('')}} />
-                <Buttons type = 'secondary' content = 'Register'  onPress = {()=> {navigation.navigate('SignUp')}}  />
+                <Buttons type='primary' content='Log In' onPress={() => navigation.navigate('LogIn')} />
+                <Buttons type = 'secondary' content = 'Register'  onPress = {()=> navigation.navigate('SignUp')}  />
             </View>
         </View>
        
