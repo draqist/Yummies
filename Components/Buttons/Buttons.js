@@ -1,37 +1,34 @@
 import React from 'react'
-import { View, Text, StyleSheet, Pressable } from 'react-native'
-import ButtonContainer from './ButtonContainer'
+import { View, Text, StyleSheet, Pressable, Dimensions } from 'react-native'
 
-const Buttons = ({type, content}) => {
+const Buttons = ({type, content, onPress}) => {
     const backgroundColor = type === 'primary' ? 'orange' : 'transparent'
-    //const textColor = 'type' === 'primary' ? 'white' :'white'
     const borderColor = type === 'secondary' ? 'white' : 'transparent'
     return (
-       /* <ButtonContainer>
-
-        </ButtonContainer>*/
-            <View style = {styles.container}>
-                <Pressable style  = {[styles.pressable, {backgroundColor:backgroundColor}, {borderColor:borderColor} ]}>
+        <View style={styles.container}>
+                <Pressable style  = {[styles.pressable, {backgroundColor:backgroundColor}, {borderColor:borderColor} ]} onPress={()=> onPress() }>
                     <Text style={styles.text}> { content }</Text>
                 </Pressable>
-            </View>
+            </View> 
             
        
 )}
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        padding: 10
+        paddingVertical: 4,
+        marginHorizontal: 10
     },
     pressable: {
-        height: 40,
-        alignItems: 'center',
+        height: 45,
         justifyContent: 'center',
+        alignItems: 'center',
         borderRadius: 8,
         borderWidth: 1.2
     },
     text: {
-        fontSize: 30,
+        fontSize: 20,
+        color: 'white',
         textTransform: 'capitalize',
 
     }

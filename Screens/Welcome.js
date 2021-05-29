@@ -1,34 +1,46 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, Dimensions } from 'react-native'
 import Center from './Center'
 import Buttons from '../Components/Buttons/Buttons'
+import * as Animatable from 'react-native-animatable'
 
 export const Welcome = ({navigation}) => {
     return (
-      <Center> 
+        <View style={styles.maincontainer}>
+            <ImageBackground source = {require('../assets/Indomie.jpg')} style= {styles.image}  />
+            <Center>
+                <Text style = {styles.text}> tubhub </Text>
+            </Center>
             <View style={styles.container}>
-                <ImageBackground source={require('../assets/Indomie.jpg')} style={ styles.image }/>
-                <Buttons type = 'primary' content = 'Log In'/>
-                <Buttons type = 'secondary' content = 'Register'/>
+                <Buttons type='primary' content='Log In' onPress={() => {navigation.navigate('')}} />
+                <Buttons type = 'secondary' content = 'Register'  onPress = {()=> {navigation.navigate('SignUp')}}  />
+            </View>
         </View>
-        <Text style = {styles.text}> this is the Welcome Screen </Text>
-       </Center>
+       
 )}
 
 const styles = StyleSheet.create({
+    maincontainer: {
+        width: '100%',
+        height: '100%'
+    },
     container: {
         width: '95%',
-        position: 'absolute',
-        bottom: 40,
-        
+        bottom: 30,
+        //justifyContent:'center'
     },
     text: {
-        fontSize: 20,
-        color: 'green'
+        fontSize: 40,
+        fontWeight: '500',
+        color: 'purple',
+        textAlign: 'center',
+        textTransform: 'uppercase'
     },
     image: {
         position: 'absolute',
         resizeMode: 'contain',
-        zIndex:'100'
+        width: '100%',
+        height:'100%'
+        
     }
 })
