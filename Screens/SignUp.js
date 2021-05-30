@@ -1,10 +1,11 @@
 import React from 'react'
-import {View,Text,StyleSheet} from 'react-native'
+import {View,Text,StyleSheet, Button} from 'react-native'
 
-const SignUp = ({navigation}) => {
+export const SignUp = ({navigation}) => {
     return (
         <View style={styles.container}> 
-            <Text style= {styles.text}> This is the SignUp Screen </Text>
+            <Text style={styles.text}> This is the SignUp Screen </Text>
+            <Button title='Go to Home screen' onPress={()=> navigation.navigate('Welcome') }/>
         </View>
 )}
 
@@ -21,5 +22,3 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     }
 })
-
-export default SignUp

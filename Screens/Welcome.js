@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     container: {
         width: '95%',
         bottom: 30,
-        //justifyContent:'center'
     },
     text: {
         fontSize: 40,
