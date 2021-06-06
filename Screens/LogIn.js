@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, Pressable } from 'react-native'
+import { View, Text, TextInput, StyleSheet, ImageBackground, Pressable } from 'react-native'
 import Buttons from '../Components/Buttons/Buttons'
 
 export const LogIn = ({navigation}) => {
@@ -12,45 +12,60 @@ export const LogIn = ({navigation}) => {
             <View style={styles.footer}>
                 <View style = {styles.buttonContainer}>
                     <Buttons type='primary' content='Log In' />
-                    <Pressable onPress={()=> console.warn('password was forgotten')}>
-                        <Text>
+                    <Pressable onPress={()=> console.log('password was forgotten')} style = {styles.center}>
+                        <Text style = {styles.text3} >
                             Forgot Password?
                         </Text>
                     </Pressable>
-                    </View>
+                </View>
                 <View style={styles.mainView}>
                      <Text style={styles.text}>
                         Welcome Back!
                     </Text>
-                    <Text style = {styles.text2}> Sign in to Continue </Text>
-               </View>
+                    <Text style={styles.text2}> Sign in to Continue </Text>
+                </View>
+                <View style={styles.placeholders}>
+                     <TextInput placeholder = 'Your Email' style = {styles.input}  />
+                </View>
             </View>
         </View>
 )
 }
 
 const styles = StyleSheet.create({
+    input: {
+       
+    },
+    placeholders: {
+
+    },
+    text3: {
+        fontSize:  15
+    },
+    center: {
+        alignItems: 'center',
+        justifyContent:'center'
+    },
     text: {
-        fontSize: 30,
+        fontSize: 33,
         color: 'black',
         textTransform: 'capitalize'
     },
     mainView: {
-        alignItems: 'center',
-        margin: 0,
-        paddingTop: 0,
-        flexDirection:'column'
+        paddingHorizontal: 20,
+        flexDirection: 'column',
+        margin: 5
     },
     buttonContainer: {
         width: '95%',
         position: 'absolute',
         justifyContent: 'center',
-        alignItems:'center',
         bottom: 50,
-        flexDirection:'column'
+        flexDirection: 'column',
+        
     },
     text2: {
-        fontSize: 18,
+        fontSize: 19,
         color: 'grey',
     },
     image: {
@@ -70,13 +85,11 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     footer: {
-        justifyContent:'center',
-        flex: 1.5,
+        flex: 1.7,
         width: '100%',
         height: '70%',
         paddingTop: 20,
-        paddingHorizontal: 0,
-        flexDirection: 'row',
+        flexDirection: 'column',
         backgroundColor: 'white',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30

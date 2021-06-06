@@ -11,7 +11,7 @@ export const Welcome = ({navigation}) => {
                 <Text style = {styles.text}> tubhub </Text>
             </Center>
             <View style={styles.container}>
-                <Buttons type='primary' content='Log In' onPress={() => navigation.navigate('LogIn')} />
+                <Buttons type='primary' content='Log In' onPress ={() => navigation.navigate('LogIn')} />
                 <Buttons type = 'secondary' content = 'Register'  onPress = {()=> navigation.navigate('SignUp')}  />
             </View>
         </View>

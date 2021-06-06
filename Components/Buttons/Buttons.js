@@ -6,7 +6,7 @@ const Buttons = ({type, content, onPress}) => {
     const borderColor = type === 'secondary' ? 'white' : 'transparent'
     return (
         <View style={styles.container}>
-                <Pressable style  = {[styles.pressable, {backgroundColor:backgroundColor}, {borderColor:borderColor} ]} onPress={()=> onPress() }>
+                <Pressable style  = {[styles.pressable, {backgroundColor:backgroundColor}, {borderColor:borderColor} ]} onPress= {() => onPress() }>
                     <Text style={styles.text}> { content }</Text>
                 </Pressable>
             </View> 
