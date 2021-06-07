@@ -1,46 +1,100 @@
 import React from 'react'
-import { View, Text, TextInput, StyleSheet, ImageBackground, Pressable } from 'react-native'
+import {
+    View,
+    Text,
+    TextInput,
+    StyleSheet,
+    ImageBackground,
+    Pressable,
+    ScrollView,
+    KeyboardAvoidingView} from 'react-native'
 import Buttons from '../Components/Buttons/Buttons'
+import {FontAwesome} from '@expo/vector-icons'
+import { Feather } from '@expo/vector-icons'
+import * as Animatable from 'react-native-animatable'
 
 export const LogIn = ({navigation}) => {
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../assets/eforiro.jpg')} style={ styles.image }/>
-            <View style={styles.header}>
-                
+            <View style={styles.header}>  
             </View>
-            <View style={styles.footer}>
-                <View style = {styles.buttonContainer}>
+            <Animatable.View style={styles.footer} animation='slideInUp' delay={100} >
+                 <KeyboardAvoidingView style = {styles.buttonContainer}>
                     <Buttons type='primary' content='Log In' />
                     <Pressable onPress={()=> console.log('password was forgotten')} style = {styles.center}>
                         <Text style = {styles.text3} >
                             Forgot Password?
                         </Text>
                     </Pressable>
-                </View>
+                </KeyboardAvoidingView>
+                <ScrollView>
                 <View style={styles.mainView}>
                      <Text style={styles.text}>
                         Welcome Back!
                     </Text>
                     <Text style={styles.text2}> Sign in to Continue </Text>
                 </View>
+                <Text style={styles.text1}> Email </Text>
                 <View style={styles.placeholders}>
-                     <TextInput placeholder = 'Your Email' style = {styles.input}  />
+                    <FontAwesome
+                        name='user-o'
+                        color="#05375a"
+                        size= {20}
+                    />
+                    <TextInput placeholder='Your Email' style={styles.input} />
+                    <Feather
+                        name='check-circle'
+                        color='green'
+                        size = {20}
+                    />
                 </View>
-            </View>
+                <Text style={styles.text1}> Password </Text>
+                <View style={styles.placeholders}>
+                    <FontAwesome
+                        name='lock'
+                        color="#05375a"
+                        size= {20}
+                    />
+                    <TextInput placeholder='Your Password' style={styles.input} />
+                    <Feather
+                        name='eye-off'
+                        color='#05375a'
+                        size = {20}
+                    />
+                </View>
+                </ScrollView>
+                
+            </Animatable.View>
         </View>
 )
 }
 
 const styles = StyleSheet.create({
     input: {
-       
+        flex: 1,
+        paddingLeft: 8,
+        fontSize: 20,
+    },
+    text1:{
+        marginTop: 10,
+        paddingHorizontal: 30,
+        paddingTop: 10,
+        textTransform: 'uppercase',
+        marginVertical:0
     },
     placeholders: {
-
+        flexDirection: 'row',
+        marginVertical: 10,
+        marginLeft: 30,
+        marginRight: 15,
+        borderBottomWidth: 0.9,
+        borderColor: 'grey'
     },
     text3: {
-        fontSize:  15
+        fontSize: 15,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     center: {
         alignItems: 'center',
@@ -59,10 +113,7 @@ const styles = StyleSheet.create({
     buttonContainer: {
         width: '95%',
         position: 'absolute',
-        justifyContent: 'center',
-        bottom: 50,
-        flexDirection: 'column',
-        
+        bottom: 30,      
     },
     text2: {
         fontSize: 19,
@@ -85,11 +136,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     footer: {
-        flex: 1.7,
+        flex: 1.73,
         width: '100%',
         height: '70%',
         paddingTop: 20,
-        flexDirection: 'column',
         backgroundColor: 'white',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30
