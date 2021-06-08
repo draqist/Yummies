@@ -16,6 +16,7 @@ import { Feather } from '@expo/vector-icons'
 import * as Animatable from 'react-native-animatable'
 
 export const LogIn = ({ navigation }) => {
+    const [anime, setAnime] = useState('slideInRight')
     
     const [details, setDetails] = useState({
         Username: '',
@@ -54,9 +55,18 @@ export const LogIn = ({ navigation }) => {
         }
     }
     return (
-        <View style={styles.container} >
+        <Animatable.View style={styles.container} animation = {anime} delay = {50}   >
             <ImageBackground source={require('../assets/eforiro.jpg')} style={ styles.image }/>
-            <View style={styles.header}>  
+            <View style={styles.header}>
+                <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
+                    <View style={styles.back}>
+                    <FontAwesome
+                        name='arrow-left'
+                        size={25}
+                        color = 'white'
+                    />
+                </View>
+                </TouchableOpacity>
             </View>
             <Animatable.View style={styles.footer} animation='fadeInUpBig' delay={100}  >
              <Image source = {require('../assets/lob.jpg')} style = {styles.image1} />
@@ -123,7 +133,7 @@ export const LogIn = ({ navigation }) => {
                 </View> 
                
             </Animatable.View>
-        </View>
+        </Animatable.View>
 )
 }
 
@@ -219,7 +229,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     header: {
+        width: '100%',
+        height: '100%',
         flex: 1,
+        flexDirection: 'row',
+        paddingHorizontal: 15,
+        paddingVertical: 10
     },
     footer: {
         flex: 1.73,
@@ -229,5 +244,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
+    },
+    back: {
+        marginVertical: 30,
+        alignItems: 'flex-end',
+        justifyContent: 'flex-start'
     }
 })
