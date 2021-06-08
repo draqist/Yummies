@@ -16,7 +16,8 @@ import { Feather } from '@expo/vector-icons'
 import * as Animatable from 'react-native-animatable'
 
 export const LogIn = ({ navigation }) => {
-    const [anime, setAnime] = useState('slideInRight')
+    const anime1= 'slideInRight'
+    const anime = 'fadeInUpBig'
     
     const [details, setDetails] = useState({
         Username: '',
@@ -55,7 +56,7 @@ export const LogIn = ({ navigation }) => {
         }
     }
     return (
-        <Animatable.View style={styles.container} animation = {anime} delay = {50}   >
+        <Animatable.View style={styles.container} animation = {anime1}  >
             <ImageBackground source={require('../assets/eforiro.jpg')} style={ styles.image }/>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
@@ -68,7 +69,7 @@ export const LogIn = ({ navigation }) => {
                 </View>
                 </TouchableOpacity>
             </View>
-            <Animatable.View style={styles.footer} animation='fadeInUpBig' delay={100}  >
+            <Animatable.View style={styles.footer} animation = {anime} delay={1000}  >
              <Image source = {require('../assets/lob.jpg')} style = {styles.image1} />
                 <View >
                     <View style={styles.mainView}>

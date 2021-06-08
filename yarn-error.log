@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\IBLEE\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add expo-font@~9.1.0 @expo-google-fonts/Merienda
+  C:\Program Files\nodejs\node.exe C:\Users\IBLEE\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-firebase-tools
 
 PATH: 
   C:\Users\IBLEE\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\IBLEE\bin;C:\Program Files (x86)\VMware\VMware Player\bin;C:\Python39\Scripts;C:\Python39;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\Program Files\OpenJDK\openjdk-8u292-b10\bin;C:\Program Files (x86)\dotnet;C:\Users\IBLEE\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\IBLEE\AppData\Local\Microsoft\WindowsApps;C:\Users\IBLEE\AppData\Roaming\npm;C:\Users\IBLEE\AppData\Local\hyper\app-3.0.2\resources\bin;C:\Users\IBLEE\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@expo-google-fonts%2fMerienda: Not found
+  Error: https://registry.yarnpkg.com/react-native-firebase-tools: Not found
       at Request.params.callback [as _callback] (C:\Users\IBLEE\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66988:18)
       at Request.self.callback (C:\Users\IBLEE\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140662:22)
       at Request.emit (events.js:315:20)
@@ -49,6 +49,7 @@ npm manifest:
       "react-native": "https://github.com/expo/react-native/archive/sdk-41.0.0.tar.gz",
       "react-native-animatable": "^1.3.3",
       "react-native-gesture-handler": "~1.10.2",
+      "react-native-linear-gradient": "^2.5.6",
       "react-native-reanimated": "~2.1.0",
       "react-native-safe-area-context": "3.2.0",
       "react-native-screens": "~3.0.0",
@@ -5243,6 +5244,11 @@ Lockfile:
     version "1.3.1"
     resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.3.1.tgz#20c603e9a0e765fd6f97396638bdeb0e5a60b010"
     integrity sha512-HOf0jzRnq2/aFUcdCJ9w9JGzN3gdEg0zFE4FyYlp4jtidqU03D5X7ZegGKfT1EWteR0gPBGp9ye5T5FvSWi9Yg==
+  
+  react-native-linear-gradient@^2.5.6:
+    version "2.5.6"
+    resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+    integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
   
   react-native-reanimated@~2.1.0:
     version "2.1.0"
