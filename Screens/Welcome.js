@@ -7,7 +7,7 @@ import * as Animatable from 'react-native-animatable'
 export const Welcome = ({navigation}) => {
     return (
         <Animatable.View style={styles.maincontainer} animation = 'fadeInUpBig' delay = {300}>
-            <ImageBackground source = {require('../assets/lib1.jpeg')} style= {styles.image}  />
+            <ImageBackground source = {require('../assets/jolof.png')} style= {styles.image}  />
             <Center>
                 <Text style = {styles.text}> tubhub </Text>
             </Center>
