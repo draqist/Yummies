@@ -1,13 +1,14 @@
 import React from 'react'
 import { View, Text, StyleSheet, Pressable, Dimensions } from 'react-native'
 
-const Buttons = ({type, content, onPress}) => {
+const Buttons = ({type, content,  onPress}) => {
     const backgroundColor = type === 'primary' ? 'orange' : 'transparent'
     const borderColor = type === 'secondary' ? 'white' : 'transparent'
+    const textColor = content === 'Sign in with Google' ? 'black' : 'white'
     return (
         <View style={styles.container}>
                 <Pressable style  = {[styles.pressable, {backgroundColor:backgroundColor}, {borderColor:borderColor} ]} onPress= {() => onPress() }>
-                    <Text style={styles.text}> { content }</Text>
+                    <Text style={[styles.text, {color:textColor}]}> { content }</Text>
                 </Pressable>
             </View> 
             
