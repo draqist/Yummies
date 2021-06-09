@@ -11,8 +11,7 @@ import {
     TouchableOpacity,
     } from 'react-native'
 import Buttons from '../Components/Buttons/Buttons'
-import {FontAwesome} from '@expo/vector-icons'
-import { Feather } from '@expo/vector-icons'
+import {FontAwesome, Feather, Ionicons,Fontisto,Zocial } from '@expo/vector-icons'
 import * as Animatable from 'react-native-animatable'
 
 export const LogIn = ({ navigation }) => {
@@ -118,19 +117,23 @@ export const LogIn = ({ navigation }) => {
                 </ScrollView>
             </View> 
                  <View style={styles.buttonContainer}>
-                    <Buttons type='primary' content='Log In' />
+                    <Buttons type='primary' content='Log In' onPress={ () => navigation.navigate('Home') }/>
                     <View style={styles.container0} >
                         <Pressable style = {styles.pressing}>
+                        <Ionicons name = "md-logo-google" size = {20} style = {styles.logo}  />
                             <Text style={styles.text4} >
                                 Sign in with Google
                             </Text>
                         </Pressable>
                     </View>
-                    <Pressable onPress={()=> console.log('password was forgotten')} style = {styles.center}>
-                        <Text style = {styles.text3} >
-                            Forgot Password?
-                        </Text>
-                    </Pressable>
+                    <View style = {styles.center}>
+                        <Pressable onPress={()=> console.log('password was forgotten')} >
+                            <Text style = {styles.text3} >
+                                Forgot Password?
+                            </Text>
+                        </Pressable>
+                    </View>
+                   
                 </View> 
                
             </Animatable.View>
@@ -139,20 +142,26 @@ export const LogIn = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+    logo: {
+        flexDirection: 'row',
+        paddingHorizontal: 10,
+        color:'blue'
+    },
     container0:{
         width: '100%',
         paddingVertical: 4,
         marginHorizontal: 10
     },
     pressing: {
-       height: 45,
+        flexDirection: 'row',
+        height: 45,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 8,
         borderWidth: 1.2
     },
     text4: {
-        fontSize: 20,
+        fontSize: 25,
         color: '#05375a',
     },
     input: {
@@ -177,13 +186,12 @@ const styles = StyleSheet.create({
         borderColor: '#05375a'
     },
     text3: {
-        fontSize: 17,
-        alignItems: 'center',
-        justifyContent: 'center'
+        fontSize: 18,
+        color: 'green',
     },
     center: {
-        alignItems: 'center',
-        justifyContent:'center'
+        width: '100%',
+        alignItems: 'center'
     },
     text: {
         fontSize: 33,
@@ -214,7 +222,7 @@ const styles = StyleSheet.create({
         resizeMode:'cover'
     },
     image1: {
-        opacity: 0.3,
+        opacity: 0.25,
         width: '100%',
         height: '100%',
         position: 'absolute',

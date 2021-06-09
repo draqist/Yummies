@@ -17,7 +17,7 @@ import * as Animatable from 'react-native-animatable'
 
 export const SignUp = ({ navigation }) => {
     const anime1= 'slideInDown'
-    const anime = 'fadeInUpBig'
+    const anime = 'fadeInRight'
     
     const [details, setDetails] = useState({
         Username: '',
@@ -105,7 +105,7 @@ export const SignUp = ({ navigation }) => {
                 </View>
                 </TouchableOpacity>
             </View>
-            <Animatable.View style={styles.footer} animation = {anime} delay={1000}  >
+            <Animatable.View style={styles.footer} animation = {anime} delay={500}  >
              <Image source = {require('../assets/mpp.jpg')} style = {styles.image1} />
                 <View >
                     <View style={styles.mainView}>
@@ -192,7 +192,7 @@ export const SignUp = ({ navigation }) => {
                 </ScrollView>
             </View> 
                  <View style={styles.buttonContainer}>
-                    <Buttons type='primary' content='Sign Up' />
+                    <Buttons type='primary' content='Sign Up' onPress = {()=> navigation.navigate('LogIn')} />
                     <View style={styles.contain}>
                         <View style={styles.contain0} >
                             <Text style = {styles.text3} >
@@ -200,7 +200,7 @@ export const SignUp = ({ navigation }) => {
                             </Text>
                         </View>
                     <View style={styles.container0} >
-                        <Pressable style = {[styles.pressing, {color: 'orange'}]}>
+                        <Pressable style = {[styles.pressing, {color: 'orange'}]} onPress = {() => navigation.navigate('LogIn')} >
                             <Text style={styles.text4} >
                                 Log In
                             </Text>

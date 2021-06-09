@@ -29,9 +29,9 @@ const styles = StyleSheet.create({
         bottom: 30,
     },
     text: {
-        fontSize: 40,
-        fontWeight: '500',
-        color: 'purple',
+        fontSize: 100,
+        fontWeight: 'bold',
+        color: 'white',
         textAlign: 'center',
         textTransform: 'uppercase'
     },
