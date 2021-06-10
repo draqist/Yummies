@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react'
 import {
     View,
@@ -11,7 +12,7 @@ import {
     TouchableOpacity,
     } from 'react-native'
 import Buttons from '../Components/Buttons/Buttons'
-import {FontAwesome, Feather, Ionicons,Fontisto,Zocial } from '@expo/vector-icons'
+import {FontAwesome, Feather, Ionicons} from '@expo/vector-icons'
 import * as Animatable from 'react-native-animatable'
 
 export const LogIn = ({ navigation }) => {
@@ -55,7 +56,8 @@ export const LogIn = ({ navigation }) => {
         }
     }
     return (
-        <Animatable.View style={styles.container} animation = {anime1}  >
+        <Animatable.View style={styles.container} animation={anime1}  >
+            <StatusBar style="auto" />
             <ImageBackground source={require('../assets/eforiro.jpg')} style={ styles.image }/>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
@@ -68,7 +70,7 @@ export const LogIn = ({ navigation }) => {
                 </View>
                 </TouchableOpacity>
             </View>
-            <Animatable.View style={styles.footer} animation = {anime} delay={1000}  >
+            <Animatable.View style={styles.footer} animation = {anime} delay={800}  >
              <Image source = {require('../assets/lob.jpg')} style = {styles.image1} />
                 <View >
                     <View style={styles.mainView}>

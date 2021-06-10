@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react'
 import {View, Text, StyleSheet, ImageBackground } from 'react-native'
 import Center from './Center'
@@ -6,7 +7,8 @@ import * as Animatable from 'react-native-animatable'
 
 export const Welcome = ({navigation}) => {
     return (
-        <Animatable.View style={styles.maincontainer} animation = 'fadeInUpBig' delay = {300}>
+        <Animatable.View style={styles.maincontainer} animation='fadeInUpBig' delay={300}>
+            <StatusBar style="auto" />
             <ImageBackground source = {require('../assets/jolof.png')} style= {styles.image}  />
             <Center>
                 <Text style = {styles.text}> tubhub </Text>

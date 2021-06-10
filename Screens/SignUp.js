@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react'
 import {
     View,
@@ -92,7 +93,8 @@ export const SignUp = ({ navigation }) => {
         }
     }
     return (
-        <Animatable.View style={styles.container} animation = {anime1}  >
+        <Animatable.View style={styles.container} animation={anime1}  >
+            <StatusBar style="auto" />
             <ImageBackground source={require('../assets/iresi.jpeg')} style={ styles.image }/>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
@@ -200,7 +202,7 @@ export const SignUp = ({ navigation }) => {
                             </Text>
                         </View>
                     <View style={styles.container0} >
-                        <Pressable style = {[styles.pressing, {color: 'orange'}]} onPress = {() => navigation.navigate('LogIn')} >
+                        <Pressable style = {styles.pressing} onPress = {() => navigation.navigate('LogIn')} >
                             <Text style={styles.text4} >
                                 Log In
                             </Text>
@@ -236,12 +238,12 @@ const styles = StyleSheet.create({
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 10,
-        backgroundColor: 'white'
+        borderRadius: 30,
+        backgroundColor: '#a73e13'
     },
     text4: {
         fontSize: 23,
-        color: '#05375a',
+        color: 'white',
     },
     input: {
         color: '#05375a',
