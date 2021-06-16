@@ -3,11 +3,13 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import firebase from 'firebase/app'
 import 'firebase/auth'
+
 import { Welcome } from './Screens/Welcome'
 import { LogIn } from './Screens/LogIn'
 import { SignUp } from './Screens/SignUp'
-import { Home } from './Screens/Home'
-import {NavBar} from './Screens/NavBar'
+
+import Home from './Screens/Home';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDAsbbK65RmZejzxYcZrPQsUnXE7vQuoSw",
@@ -28,7 +30,7 @@ export default () => (
       <Stack.Screen name="Welcome" component={Welcome} options={{ header: () => null }} />
       <Stack.Screen name="LogIn" component={LogIn} options={{ header: () => null }} />
       <Stack.Screen name="SignUp" component={SignUp} options={{ header: () => null }} />
-      <Stack.Screen name="HomeStack" component={NavBar} options={{ header: () => null }} />
+      <Stack.Screen name="Home" component={Home} options={{ header: () => null }} />
       
     </Stack.Navigator>
   

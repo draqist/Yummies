@@ -1,10 +1,15 @@
 import React from 'react'
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { Home } from './Home'
+import { Search } from './Search'
+import {Favourites} from './Favourites'
+
+
 
 const Tab = createMaterialBottomTabNavigator()
 
-export const NavBar = () => {
+const NavBar = () => {
     return (
         <Tab.Navigator
       initialRouteName="Home"
@@ -13,7 +18,7 @@ export const NavBar = () => {
     >
       <Tab.Screen
         name="Home"
-        component={Feed}
+        component={Home}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
