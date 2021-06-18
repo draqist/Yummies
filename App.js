@@ -3,14 +3,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import firebase from 'firebase/app'
 import 'firebase/auth'
-
-import { Welcome } from './Screens/Welcome'
-import { LogIn } from './Screens/LogIn'
-import { SignUp } from './Screens/SignUp'
-
-import Home from './Screens/Home';
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyDAsbbK65RmZejzxYcZrPQsUnXE7vQuoSw",
   authDomain: "the-real-tubhub.firebaseapp.com",
@@ -21,19 +13,26 @@ const firebaseConfig = {
   measurementId: "G-R8XEJZWFWD"
 };
 
-firebase.initializeApp(firebaseConfig)
-const Stack = createStackNavigator()
+import { Welcome } from './Screens/Welcome'
+import { LogIn } from './Screens/LogIn'
+import { SignUp } from './Screens/SignUp'
+import { NavBar } from './Screens/NavBar';
 
+
+
+
+firebase.initializeApp(firebaseConfig)
+
+const Stack = createStackNavigator()
+ 
 export default () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName = 'Welcome' options = {{header:() => null}}  >
+    <Stack.Navigator initialRouteName = 'Welcome'  >
       <Stack.Screen name="Welcome" component={Welcome} options={{ header: () => null }} />
       <Stack.Screen name="LogIn" component={LogIn} options={{ header: () => null }} />
       <Stack.Screen name="SignUp" component={SignUp} options={{ header: () => null }} />
-      <Stack.Screen name="Home" component={Home} options={{ header: () => null }} />
-      
+      <Stack.Screen name="Home" component={NavBar} options={{ header: () => null }} /> 
     </Stack.Navigator>
-  
 </NavigationContainer>
 
 )

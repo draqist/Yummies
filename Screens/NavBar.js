@@ -1,28 +1,29 @@
 import React from 'react'
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs'
-import { MaterialCommunityIcons } from '@expo/vector-icons'
+import { createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs'
+import { FontAwesome, MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons'
+
 import { Home } from './Home'
 import { Search } from './Search'
-import {Favourites} from './Favourites'
-
-
+import Favourites from './Favourites'
+import { Profile } from './Profile'
 
 const Tab = createMaterialBottomTabNavigator()
 
-const NavBar = () => {
+export const NavBar = () => {
     return (
         <Tab.Navigator
-      initialRouteName="Home"
-      activeColor="#e91e63"
-      barStyle={{ backgroundColor: 'tomato' }}
+        tabBarOptions={{
+          showLabel: false,
+        }}
+        activeColor="orange"
+        barStyle={{ backgroundColor: '#05375a' }}
     >
       <Tab.Screen
         name="Home"
         component={Home}
-        options={{
-          tabBarLabel: 'Home',
+          options={{
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <AntDesign name="home" color={color} size={26} />
           ),
         }}
       />
@@ -30,19 +31,18 @@ const NavBar = () => {
         name="Search"
         component={Search}
         options={{
-          tabBarLabel: 'Updates',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+            <Ionicons name="search" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
         name="Favourites"
         component={Favourites}
-        options={{
-          tabBarLabel: 'Favourites',
+          options={{
+          
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <FontAwesome name="bookmark-o" color={color} size={26} />
           ),
         }}
       />
@@ -50,9 +50,8 @@ const NavBar = () => {
         name="Profile"
         component={Profile}
         options={{
-          tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <FontAwesome name="user-o" color={color} size={26} />
           ),
         }}
       />

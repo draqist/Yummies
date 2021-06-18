@@ -1,8 +1,58 @@
 background-color #ff4e00;
 background-image linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
 animation='fadeInUpBig'
+ likely tab bar colors: {
+   green: '#06575a',
+   purple: 
+   blue{default}: ''#05375a''
+}
+ <Tab.Navigator
+    //   activeColor="#e91e63"
+    //   barStyle={{ backgroundColor: 'tomato' }}
+    // >
+    //   {/* <Tab.Screen
+    //     name="Home"
+    //     component={Home}
+    //     options={{
+    //       tabBarLabel: 'Home',
+    //       tabBarIcon: ({ color }) => (
+    //         <MaterialCommunityIcons name="home" color={color} size={26} />
+    //       ),
+    //     }}
+    //   /> */}
+    //   <Tab.Screen
+    //     name="Search"
+    //     component={Search}
+    //     options={{
+    //       tabBarLabel: 'Updates',
+    //       tabBarIcon: ({ color }) => (
+    //         <MaterialCommunityIcons name="bell" color={color} size={26} />
+    //       ),
+    //     }}
+    //   />
+    //   {/* <Tab.Screen
+    //     name="Favourites"
+    //     component={Favourites}
+    //     options={{
+    //       tabBarLabel: 'Favourites',
+    //       tabBarIcon: ({ color }) => (
+    //         <MaterialCommunityIcons name="account" color={color} size={26} />
+    //       ),
+    //     }}
+    //   /> */}
+    //   <Tab.Screen
+    //     name="Profile"
+    //     component={Profile}
+    //     options={{
+    //       tabBarLabel: 'Profile',
+    //       tabBarIcon: ({ color }) => (
+    //         <MaterialCommunityIcons name="account" color={color} size={26} />
+    //       ),
+    //     }}
+    //   />
+    // </Tab.Navigator>
+    // )
 
-<Tab.Navigator
       initialRouteName="Feed"
       activeColor="#e91e63"
       barStyle={{ backgroundColor: 'tomato' }}
@@ -38,3 +88,37 @@ animation='fadeInUpBig'
         }}
       />
     </Tab.Navigator>
+
+    import { 
+  BigShouldersDisplay_100Thin,
+  BigShouldersDisplay_300Light,
+  BigShouldersDisplay_400Regular,
+  BigShouldersDisplay_500Medium,
+  BigShouldersDisplay_600SemiBold,
+  BigShouldersDisplay_700Bold,
+  BigShouldersDisplay_800ExtraBold,
+  BigShouldersDisplay_900Black 
+} from '@expo-google-fonts/big-shoulders-display'
+import { 
+  KaushanScript_400Regular 
+} from '@expo-google-fonts/kaushan-script'
+import { 
+  DoHyeon_400Regular 
+} from '@expo-google-fonts/do-hyeon'
+import { 
+  CabinSketch_400Regular,
+  CabinSketch_700Bold 
+} from '@expo-google-fonts/cabin-sketch'
+import { 
+  CevicheOne_400Regular 
+} from '@expo-google-fonts/ceviche-one'
+import { 
+  ContrailOne_400Regular 
+} from '@expo-google-fonts/contrail-one'
+expo install @expo-google-fonts/mirza
+import { 
+  Mirza_400Regular,
+  Mirza_500Medium,
+  Mirza_600SemiBold,
+  Mirza_700Bold 
+} from '@expo-google-fonts/mirza'

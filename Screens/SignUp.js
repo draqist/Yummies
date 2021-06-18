@@ -177,7 +177,7 @@ export const SignUp = ({ navigation }) => {
                             color="#05375a"
                             size= {20}
                         />
-                            <TextInput placeholder='Your Password' style={styles.input} secureTextEntry={details1.secureTextEntry ? true : false} autoCapitalize='none' onChangeText={(val1) => passwordHandler1(val1)} />
+                            <TextInput placeholder='Confirm Password' style={styles.input} secureTextEntry={details1.secureTextEntry ? true : false} autoCapitalize='none' onChangeText={(val1) => passwordHandler1(val1)} />
                             <TouchableOpacity onPress = {updateEye1}>
                                 {details1.secureTextEntry ?
                                     <Feather
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
         top: 10
     },
     container0: {
-        flex: 1,
+        // flex: 1,
         width: '40%',
         left: 200,
         marginVertical: 9,

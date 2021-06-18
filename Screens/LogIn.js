@@ -25,20 +25,6 @@ export const LogIn = ({ navigation }) => {
         check_textInputChange: false,
         secureTextEntry : true,
     })
-
-    const passwordHandler = (val) => {
-        setDetails({
-            ...details,
-            Password: val
-        })
-    }
-    const updateEye = () => {
-        setDetails({
-            ...details,
-            secureTextEntry: !details.secureTextEntry
-        })
-    }
-
     const textInputChange = (val) => {
         if (val.length !== 0) {
             setDetails({
@@ -55,6 +41,20 @@ export const LogIn = ({ navigation }) => {
             })
         }
     }
+
+    const passwordHandler = (val) => {
+        setDetails({
+            ...details,
+            Password: val
+        })
+    }
+    const updateEye = () => {
+        setDetails({
+            ...details,
+            secureTextEntry: !details.secureTextEntry
+        })
+    }
+
     return (
         <Animatable.View style={styles.container} animation={anime1}  >
             <StatusBar style="auto" />
@@ -119,7 +119,7 @@ export const LogIn = ({ navigation }) => {
                 </ScrollView>
             </View> 
                  <View style={styles.buttonContainer}>
-                    <Buttons type='primary' content='Log In' onPress={ () => navigation.navigate('Home') }/>
+                    <Buttons type='primary' content='Log In' onPress={ () => navigation.replace('Home') }/>
                     <View style={styles.container0} >
                         <Pressable style = {styles.pressing}>
                         <Ionicons name = "md-logo-google" size = {20} style = {styles.logo}  />
@@ -160,7 +160,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 8,
-        borderWidth: 1.2
+        borderWidth: 0.5,
+        borderColor: 'grey',
+        backgroundColor: "white"
     },
     text4: {
         fontSize: 25,

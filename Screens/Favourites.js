@@ -1,22 +1,30 @@
 import React from 'react'
-import {View,Text,StyleSheet} from 'react-native'
+import {View,Text,StyleSheet, ImageBackground} from 'react-native'
 
-const Favourites = () => {
+ const Favourites = () => {
     return (
-        <View style={styles.container}>
+      <View style={styles.container}>
+        
+        <ImageBackground source={require('../assets/spehg.jpg')} style={styles.image}/>
             <Text>Oh Pyaar</Text>
         </View>
     )
 }
 
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        resizeMode:'cover'
+    },
 });
 
 export default Favourites

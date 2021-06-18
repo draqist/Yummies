@@ -1,9 +1,11 @@
 import React from 'react'
-import {View,Text,StyleSheet} from 'react-native'
+import {View,Text,StyleSheet, ImageBackground} from 'react-native'
 
-const Profile = () => {
+export const Profile = () => {
     return (
-        <View style={styles.container}>
+      <View style={styles.container}>
+        
+        <ImageBackground source={require('../assets/food.jpeg')} style={styles.image}/>
             <Text> Oh Hello </Text>
         </View>
     )
@@ -16,5 +18,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        resizeMode:'cover'
+    },
 });
-export default Profile

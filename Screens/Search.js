@@ -1,9 +1,10 @@
 import React from 'react'
-import {View,Text,StyleSheet} from 'react-native'
+import {View,Text,StyleSheet, ImageBackground} from 'react-native'
 
 export const Search = () => {
     return (
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <ImageBackground source={require('../assets/ire1.jpeg')} style={styles.image}/>
             <Text>Oh Hi</Text>
         </View>
     )
@@ -16,4 +17,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  image: {
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        resizeMode:'cover'
+    },
 });
