@@ -11,10 +11,9 @@ const Tab = createMaterialBottomTabNavigator()
 
 export const NavBar = () => {
     return (
-        <Tab.Navigator
-        tabBarOptions={{
-          showLabel: false,
-        }}
+      <Tab.Navigator
+        labeled={false}
+        shifting = {true}
         activeColor="orange"
         barStyle={{ backgroundColor: '#05375a' }}
     >
@@ -40,7 +39,6 @@ export const NavBar = () => {
         name="Favourites"
         component={Favourites}
           options={{
-          
           tabBarIcon: ({ color }) => (
             <FontAwesome name="bookmark-o" color={color} size={26} />
           ),

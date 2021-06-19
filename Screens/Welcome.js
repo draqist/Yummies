@@ -17,7 +17,7 @@ export const Welcome = ({ navigation }) => {
         return (
             <Animatable.View style={styles.maincontainer} animation='fadeInUpBig' delay={300}>
                 <StatusBar style="auto" />
-                <ImageBackground source={require('../assets/jolof.png')} style={styles.image} />
+                <ImageBackground source={require('../assets/images/jolof.png')} style={styles.image} />
                 <Center>
                     <Text style={styles.text}> tubhub </Text>
                 </Center>

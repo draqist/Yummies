@@ -95,7 +95,7 @@ export const SignUp = ({ navigation }) => {
     return (
         <Animatable.View style={styles.container} animation={anime1}  >
             <StatusBar style="auto" />
-            <ImageBackground source={require('../assets/iresi.jpeg')} style={ styles.image }/>
+            <ImageBackground source={require('../assets/images/iresi.jpeg')} style={ styles.image }/>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
                     <View style={styles.back}>
@@ -108,7 +108,7 @@ export const SignUp = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <Animatable.View style={styles.footer} animation = {anime} delay={500}  >
-             <Image source = {require('../assets/mpp.jpg')} style = {styles.image1} />
+             <Image source = {require('../assets/images/mpp.jpg')} style = {styles.image1} />
                 <View >
                     <View style={styles.mainView}>
                         <Text style={styles.text}>

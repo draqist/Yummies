@@ -5,7 +5,7 @@ export const Profile = () => {
     return (
       <View style={styles.container}>
         
-        <ImageBackground source={require('../assets/food.jpeg')} style={styles.image}/>
+        <ImageBackground source={require('../assets/images/food.jpeg')} style={styles.image}/>
             <Text> Oh Hello </Text>
         </View>
     )

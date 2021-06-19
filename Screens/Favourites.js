@@ -5,7 +5,7 @@ import {View,Text,StyleSheet, ImageBackground} from 'react-native'
     return (
       <View style={styles.container}>
         
-        <ImageBackground source={require('../assets/spehg.jpg')} style={styles.image}/>
+        <ImageBackground source={require('../assets/images/spehg.jpg')} style={styles.image}/>
             <Text>Oh Pyaar</Text>
         </View>
     )

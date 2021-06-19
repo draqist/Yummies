@@ -5,6 +5,7 @@ animation='fadeInUpBig'
    green: '#06575a',
    purple: 
    blue{default}: ''#05375a''
+   dopeBrown: '#16170a'
 }
  <Tab.Navigator
     //   activeColor="#e91e63"

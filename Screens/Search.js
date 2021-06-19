@@ -4,7 +4,7 @@ import {View,Text,StyleSheet, ImageBackground} from 'react-native'
 export const Search = () => {
     return (
       <View style={styles.container}>
-        <ImageBackground source={require('../assets/ire1.jpeg')} style={styles.image}/>
+        <ImageBackground source={require('../assets/images/ire1.jpeg')} style={styles.image}/>
             <Text>Oh Hi</Text>
         </View>
     )

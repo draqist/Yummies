@@ -27,7 +27,7 @@ const Stack = createStackNavigator()
  
 export default () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName = 'Welcome'  >
+    <Stack.Navigator initialRouteName = 'Home'  >
       <Stack.Screen name="Welcome" component={Welcome} options={{ header: () => null }} />
       <Stack.Screen name="LogIn" component={LogIn} options={{ header: () => null }} />
       <Stack.Screen name="SignUp" component={SignUp} options={{ header: () => null }} />

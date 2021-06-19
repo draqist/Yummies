@@ -5,21 +5,31 @@ import { Ionicons, FontAwesome, AntDesign, Feather } from '@expo/vector-icons'
 import { useFonts,
   DoHyeon_400Regular , 
 } from '@expo-google-fonts/do-hyeon'
-import {ContrailOne_400Regular} from '@expo-google-fonts/contrail-one'
+import { ContrailOne_400Regular } from '@expo-google-fonts/contrail-one'
+import { 
+  Mirza_400Regular,
+  Mirza_500Medium,
+  Mirza_600SemiBold,
+  Mirza_700Bold 
+} from '@expo-google-fonts/mirza'
 
 
 let userName = 'Abdullah'
 export const Home = ({ navigation }) => {
   const loadedFonts = useFonts({
-    DoHyeon_400Regular, ContrailOne_400Regular
+    DoHyeon_400Regular, ContrailOne_400Regular,   Mirza_400Regular,
+  Mirza_500Medium,
+  Mirza_600SemiBold,
+  Mirza_700Bold
   });
   if (!loadedFonts) {
     return <AppLoading />
   } else {
     return (
       <View style={styles.container}>
-        <ImageBackground source={require('../assets/Indomie.jpg')} style={styles.image}/>
-        <View style={styles.headerComp}>
+        {/* <ImageBackground source={require('../assets/images/Indomie.jpg')} style={styles.image}/> */}
+        <View style = {styles.mainHeader}>
+          <View style={styles.headerComp}>
           <Text style={styles.text}>  Hello {userName}, </Text>
           <FontAwesome
             name='user'
@@ -33,7 +43,11 @@ export const Home = ({ navigation }) => {
          </View>
         <View style={styles.searchBar}   >
           <Ionicons name='search' color='white' size={20} style={styles.icon} />
-          <TextInput placeholder='Search Delicacies' autoCapitalize='none' style={styles.input} />
+          <TextInput placeholder='Search Menu' placeholderTextColor = 'white'   autoCapitalize='none' style={styles.input} />
+        </View>
+        </View>
+        <View style={styles.scrollables}>
+        <Text style = {styles.scrollText}>  Something New </Text>
         </View>
       </View>
     )
@@ -42,8 +56,12 @@ export const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
     flex: 1,
-    // backgroundColor: '#39135a',
+    backgroundColor: 'white',
     alignItems: 'center',
+  },
+  mainHeader: {
+    width: '100%',
+    alignItems: 'center'
   },
   text: {
     fontSize: 29,
@@ -61,12 +79,17 @@ const styles = StyleSheet.create({
         opacity: 0.8
     },
   text1: {
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: 'ContrailOne_400Regular',
     marginHorizontal: 12,
-    color: 'white',
+    color: 'darkgray',
     marginTop: 0,
     paddingTop: 0
+  },
+  scrollText: {
+    fontSize: 27,
+    fontFamily: 'Mirza_500Medium',
+    color:'white'
   },
   icon: {
     paddingLeft: 5,
@@ -79,28 +102,32 @@ const styles = StyleSheet.create({
   input: {
         color: 'white',
         flex: 1,
-        paddingLeft: 5,
+        paddingLeft: 9,
         fontSize: 20,
     },
   headerComp: {
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: 15
+    marginTop: 20
   },
   headerSub: {
-    flexDirection: 'column'
+    flexDirection: 'row'
   },
   searchBar: {
     width: '90%',
     flexDirection: 'row',
     height: 40,
-    justifyContent: 'center',
+    justifyContent:'center',
     marginVertical: 10,
     borderWidth: 1.2,
     borderColor: 'lime',
     borderRadius: 10,
-    backgroundColor: 'grey'
-
-   },
+    backgroundColor: 'lightgray',
+  },
+  scrollables: {
+    width: '100%',
+    justifyContent: 'center',
+    marginTop: 20,
+  },
   })

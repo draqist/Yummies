@@ -58,7 +58,7 @@ export const LogIn = ({ navigation }) => {
     return (
         <Animatable.View style={styles.container} animation={anime1}  >
             <StatusBar style="auto" />
-            <ImageBackground source={require('../assets/eforiro.jpg')} style={ styles.image }/>
+            <ImageBackground source={require('../assets/images/eforiro.jpg')} style={ styles.image }/>
             <View style={styles.header}>
                 <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
                     <View style={styles.back}>
@@ -71,7 +71,7 @@ export const LogIn = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <Animatable.View style={styles.footer} animation = {anime} delay={800}  >
-             <Image source = {require('../assets/lob.jpg')} style = {styles.image1} />
+             <Image source = {require('../assets/images/lob.jpg')} style = {styles.image1} />
                 <View >
                     <View style={styles.mainView}>
                         <Text style={styles.text}>
