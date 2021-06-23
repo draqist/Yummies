@@ -1,58 +1,61 @@
 import React from 'react'
-import { createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs'
-import { FontAwesome, MaterialCommunityIcons, Ionicons, AntDesign } from '@expo/vector-icons'
+import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import { FontAwesome,Ionicons,MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
 
 import { Home } from './Home'
 import { Search } from './Search'
 import Favourites from './Favourites'
 import { Profile } from './Profile'
-
-const Tab = createMaterialBottomTabNavigator()
+import { StyleSheet } from 'react-native'
+import * as Animatable from 'react-native-animatable'
+const Tab = createBottomTabNavigator()
 
 export const NavBar = () => {
     return (
       <Tab.Navigator
-        labeled={false}
-        shifting = {true}
-        activeColor="orange"
+        tabBarOptions={{
+          style: {
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            left: 0,
+            height: 60,
+            fontSize: 30
+          },
+        }}
+        shifting = {false}
         barStyle={{ backgroundColor: '#05375a' }}
     >
       <Tab.Screen
         name="Home"
         component={Home}
-          options={{
+          options={{ 
           tabBarIcon: ({ color }) => (
             <AntDesign name="home" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
-        name="Search"
-        component={Search}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="search" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Favourites"
+        name="Orders"
         component={Favourites}
-          options={{
+          options={{ 
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="bookmark-o" color={color} size={26} />
+            <MaterialCommunityIcons name="cart-outline" color={color} size={26} />
           ),
         }}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{
+        options={{ 
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="user-o" color={color} size={26} />
+            <FontAwesome name="user-o" color={color} size={30 }  />
           ),
         }}
       />
     </Tab.Navigator>
     )
 }
+
+const styles = StyleSheet.create({
+})

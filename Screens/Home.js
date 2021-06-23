@@ -1,73 +1,92 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Dimensions, StyleSheet, Text, View , TextInput, ImageBackground} from 'react-native'
+import {  StyleSheet, Text, View ,ScrollView, TextInput, ImageBackground,TouchableOpacity,FlatList, Image, } from 'react-native'
 import { Ionicons, FontAwesome, AntDesign, Feather } from '@expo/vector-icons'
+import * as Animatable from 'react-native-animatable'
 import { useFonts,
   DoHyeon_400Regular , 
 } from '@expo-google-fonts/do-hyeon'
 import { ContrailOne_400Regular } from '@expo-google-fonts/contrail-one'
-import { 
-  Mirza_400Regular,
-  Mirza_500Medium,
-  Mirza_600SemiBold,
-  Mirza_700Bold 
-} from '@expo-google-fonts/mirza'
+ import {
+        CevicheOne_400Regular
+    } from '@expo-google-fonts/ceviche-one'
+import Card from '../Components/CategoryCard/card'
+import CardList from '../Components/CategoryCard/Cardlist'
 
 
 let userName = 'Abdullah'
 export const Home = ({ navigation }) => {
   const loadedFonts = useFonts({
-    DoHyeon_400Regular, ContrailOne_400Regular,   Mirza_400Regular,
-  Mirza_500Medium,
-  Mirza_600SemiBold,
-  Mirza_700Bold
+    DoHyeon_400Regular, ContrailOne_400Regular,CevicheOne_400Regular 
   });
   if (!loadedFonts) {
     return <AppLoading />
   } else {
     return (
+      // App Container
       <View style={styles.container}>
-        {/* <ImageBackground source={require('../assets/images/Indomie.jpg')} style={styles.image}/> */}
-        <View style = {styles.mainHeader}>
-          <View style={styles.headerComp}>
-          <Text style={styles.text}>  Hello {userName}, </Text>
-          <FontAwesome
-            name='user'
-            size={45}
-            color='white'
-            style = {styles.icon1}
-          />
+        <Animatable.View style={styles.mainView}  >
+            {/* Header */}
+          <View style = {styles.mainHeader}>
+            <View style={styles.headerComp}>
+            <Text style={styles.text}>  Hello {userName}, </Text>
+            <TouchableOpacity onPress={ () => navigation.navigate('Profile')}>
+                <Image source = {require('../assets/images/sukuna.png')}  style = {styles.icon1} />
+            </TouchableOpacity>
+          </View>
+            <Animatable.View style={styles.headerSub} >
+              <Text style={styles.text1}>What would you like to have today?</Text>
+            </Animatable.View>
+          {/* Search Bar */}
+            <Animatable.View style={styles.searchBar} animation = {'fadeInUp'} delay = {1000}   >
+              <Ionicons name='search' color='white' size={20} style={styles.icon} />
+              <TextInput placeholder='Search Menu' placeholderTextColor = 'white'   autoCapitalize='none' style={styles.input} />
+            </Animatable.View>
         </View>
-          <View style={styles.headerSub}>
-             <Text style={styles.text1}>What would you like to have today?</Text>
-         </View>
-        <View style={styles.searchBar}   >
-          <Ionicons name='search' color='white' size={20} style={styles.icon} />
-          <TextInput placeholder='Search Menu' placeholderTextColor = 'white'   autoCapitalize='none' style={styles.input} />
-        </View>
-        </View>
-        <View style={styles.scrollables}>
-        <Text style = {styles.scrollText}>  Something New </Text>
+        </Animatable.View>
+        {/* Horizontal scroll category */}
+          <Text style={styles.scrollText}>  Something New </Text>  
+          <View>
+            <FlatList
+              data={CardList}
+              keyExtractor = {(item)=> {item.index}}
+              renderItem={({ item }) => <Card CardList={item} name = {item.name} image = {item.image} />}
+              horizontal={true} style={styles.scrollables} showsHorizontalScrollIndicator={false} />
+          </View>
+
+        {/* Recommended Section */}
+        <View style = {styles.scrollz}>
+          <Text style= {styles.scrollText}>Recommended</Text>
         </View>
       </View>
     )
   }
 }
 const styles = StyleSheet.create({
-    container: {
+  container: {
     flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
+    backgroundColor: 'gray',
+},
+  mainView: {
+    borderBottomColor: 'white',
+    backgroundColor: 'grey',
+    width: '100%',
+    height: '100%',
+    flex: 0.24,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10
   },
   mainHeader: {
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'white',
+    borderBottomStartRadius: 20,
+    borderBottomEndRadius: 20,
   },
   text: {
     fontSize: 29,
     fontFamily: 'DoHyeon_400Regular',
     color: 'lime',
-    lineHeight: '1',
     marginTop: 10,
     
   },
@@ -87,17 +106,22 @@ const styles = StyleSheet.create({
     paddingTop: 0
   },
   scrollText: {
-    fontSize: 27,
-    fontFamily: 'Mirza_500Medium',
-    color:'white'
+    fontSize: 30,
+    marginTop: 85,
+    fontFamily: 'CevicheOne_400Regular',
+    color: 'black',
+    // lineHeight: 55
+
   },
   icon: {
     paddingLeft: 5,
     paddingTop: 8
   },
   icon1: {
-    marginRight: 10
-    
+    marginRight: 10,
+    width: 40,
+    height: 40,
+    borderRadius: 10
   },
   input: {
         color: 'white',
@@ -127,7 +151,12 @@ const styles = StyleSheet.create({
   },
   scrollables: {
     width: '100%',
-    justifyContent: 'center',
-    marginTop: 20,
+    marginTop: 10,
+    paddingHorizontal: 7,
+    flexDirection: 'row'
   },
+  scrollz: {
+    width: '100%',
+    marginTop: 20
+  }
   })

@@ -87,7 +87,7 @@ export const LogIn = ({ navigation }) => {
                             color="#05375a"
                             size= {20}
                         />
-                            <TextInput placeholder='Your Email' style={styles.input} autoCapitalize='none' onChangeText={(val) => textInputChange(val)} />
+                            <TextInput keyboardType = 'email-address' placeholder='Your Email' style={styles.input} autoCapitalize='none' onChangeText={(val) => textInputChange(val)} />
                             {details.check_textInputChange ?
                                 <Animatable.View animation = 'bounceIn' >
                                         <Feather name='check-circle'  color='green' size = {20} />          
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 8,
         borderWidth: 0.5,
-        borderColor: 'grey',
+        borderColor: 'white',
         backgroundColor: "white"
     },
     text4: {
@@ -190,12 +190,14 @@ const styles = StyleSheet.create({
         borderColor: '#05375a'
     },
     text3: {
-        fontSize: 18,
+        fontSize: 20,
         color: 'green',
     },
     center: {
         width: '100%',
-        alignItems: 'center'
+        flexDirection: 'row',
+        // alignItems: 'center',
+        justifyContent: 'center'
     },
     text: {
         fontSize: 33,
@@ -237,9 +239,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: '100%',
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        flex: 1
     },
     header: {
         width: '100%',

@@ -6,13 +6,12 @@ import {View,Text,StyleSheet, ImageBackground} from 'react-native'
       <View style={styles.container}>
         
         <ImageBackground source={require('../assets/images/spehg.jpg')} style={styles.image}/>
-            <Text>Oh Pyaar</Text>
+            <Text style = {styles.text}>Oh Pyaar</Text>
         </View>
     )
 }
 
-
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
@@ -20,11 +19,16 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   image: {
-        width: '100%',
-        height: '100%',
-        position: 'absolute',
-        resizeMode:'cover'
-    },
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    resizeMode: 'contain',
+    zIndex: -20    
+  },
+  text: {
+    fontSize: 30,
+    color: 'white'
+  }
 });
 
 export default Favourites

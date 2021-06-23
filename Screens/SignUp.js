@@ -10,6 +10,7 @@ import {
     Pressable,
     ScrollView,
     TouchableOpacity,
+    KeyboardAvoidingView
     } from 'react-native'
 import Buttons from '../Components/Buttons/Buttons'
 import {FontAwesome} from '@expo/vector-icons'
@@ -124,7 +125,7 @@ export const SignUp = ({ navigation }) => {
                             color="#05375a"
                             size= {20}
                         />
-                            <TextInput placeholder='John Doe' style={styles.input} autoCapitalize='none' onChangeText={(val) => textInputChange(val)} />
+                            <TextInput placeholder='John Doe' style={styles.input}    autoCapitalize='none' onChangeText={(val) => textInputChange(val)} />
                             {details.check_textInputChange ?
                                 <Animatable.View animation = 'bounceIn' >
                                         <Feather name='check-circle'  color='green' size = {20} />          
@@ -202,11 +203,11 @@ export const SignUp = ({ navigation }) => {
                             </Text>
                         </View>
                     <View style={styles.container0} >
-                        <Pressable style = {styles.pressing} onPress = {() => navigation.navigate('LogIn')} >
+                        <TouchableOpacity style = {styles.pressing} onPress = {() => navigation.navigate('LogIn')} >
                             <Text style={styles.text4} >
                                 Log In
                             </Text>
-                        </Pressable>
+                        </TouchableOpacity>
                     </View>
                     </View>
                         
