@@ -1,14 +1,22 @@
 import React from 'react'
 import { createBottomTabNavigator} from '@react-navigation/bottom-tabs'
-import { FontAwesome,Ionicons,MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
-
+import { FontAwesome, MaterialCommunityIcons, AntDesign } from '@expo/vector-icons'
+import { createStackNavigator } from '@react-navigation/stack'
 import { Home } from './Home'
-import { Search } from './Search'
 import Favourites from './Favourites'
 import { Profile } from './Profile'
 import { StyleSheet } from 'react-native'
-import * as Animatable from 'react-native-animatable'
+import { OrderMenu } from './Search'
+
 const Tab = createBottomTabNavigator()
+const OrderStack = createStackNavigator()
+
+const OrderStackScreen = () => (
+  <OrderStack.Navigator >
+      <OrderStack.Screen name = "Home" component = {Home} options = {{header:()=> null}} />
+      <OrderStack.Screen name = "OrderMenu" component = {OrderMenu} options = {{header:()=> null}}/>
+  </OrderStack.Navigator>
+)
 
 export const NavBar = () => {
     return (
@@ -28,7 +36,7 @@ export const NavBar = () => {
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={OrderStackScreen}
           options={{ 
           tabBarIcon: ({ color }) => (
             <AntDesign name="home" color={color} size={26} />

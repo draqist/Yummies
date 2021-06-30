@@ -1,7 +1,7 @@
 import React from 'react'
 import {View,Text,StyleSheet, ImageBackground} from 'react-native'
 
-export const Search = () => {
+export const OrderMenu = () => {
     return (
       <View style={styles.container}>
         <ImageBackground source={require('../assets/images/ire1.jpeg')} style={styles.image}/>

@@ -17,6 +17,8 @@ import { Welcome } from './Screens/Welcome'
 import { LogIn } from './Screens/LogIn'
 import { SignUp } from './Screens/SignUp'
 import { NavBar } from './Screens/NavBar';
+import { OrderMenu } from './Screens/Search';
+import { Card } from './Components/CategoryCard/card';
 
 
 
@@ -27,7 +29,7 @@ const Stack = createStackNavigator()
  
 export default () => (
   <NavigationContainer>
-    <Stack.Navigator initialRouteName = 'Welcome'  >
+    <Stack.Navigator initialRouteName = 'Home' >
       <Stack.Screen name="Welcome" component={Welcome} options={{ header: () => null }} />
       <Stack.Screen name="LogIn" component={LogIn} options={{ header: () => null }} />
       <Stack.Screen name="SignUp" component={SignUp} options={{ header: () => null }} />

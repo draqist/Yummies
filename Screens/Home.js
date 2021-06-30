@@ -1,30 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import {  StyleSheet, Text, View ,ScrollView, TextInput, ImageBackground,TouchableOpacity,FlatList, Image, } from 'react-native'
-import { Ionicons, FontAwesome, AntDesign, Feather } from '@expo/vector-icons'
+import {  StyleSheet, Text, View ,ScrollView, TextInput, Button, ImageBackground,TouchableOpacity,FlatList, Image, Dimensions, } from 'react-native'
+import {  Ionicons  } from '@expo/vector-icons'
 import * as Animatable from 'react-native-animatable'
-import { useFonts,
-  DoHyeon_400Regular , 
-} from '@expo-google-fonts/do-hyeon'
+import { useFonts,DoHyeon_400Regular } from '@expo-google-fonts/do-hyeon'
 import { ContrailOne_400Regular } from '@expo-google-fonts/contrail-one'
- import {
-        CevicheOne_400Regular
-    } from '@expo-google-fonts/ceviche-one'
-import Card from '../Components/CategoryCard/card'
-import CardList from '../Components/CategoryCard/Cardlist'
+ import { CevicheOne_400Regular} from '@expo-google-fonts/ceviche-one'
+import {Card, Card2} from '../Components/CategoryCard/card'
+import {Something, Recommended} from '../Components/CategoryCard/Cardlist'
 
 
 let userName = 'Abdullah'
 export const Home = ({ navigation }) => {
-  const loadedFonts = useFonts({
-    DoHyeon_400Regular, ContrailOne_400Regular,CevicheOne_400Regular 
-  });
+  const loadedFonts = useFonts({ DoHyeon_400Regular, ContrailOne_400Regular ,CevicheOne_400Regular });
   if (!loadedFonts) {
     return <AppLoading />
   } else {
     return (
       // App Container
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
+        <StatusBar hidden={ false } />
         <Animatable.View style={styles.mainView}  >
             {/* Header */}
           <View style = {styles.mainHeader}>
@@ -38,7 +33,7 @@ export const Home = ({ navigation }) => {
               <Text style={styles.text1}>What would you like to have today?</Text>
             </Animatable.View>
           {/* Search Bar */}
-            <Animatable.View style={styles.searchBar} animation = {'fadeInUp'} delay = {1000}   >
+            <Animatable.View style={styles.searchBar} animation = {'fadeIn'} delay = {500}   >
               <Ionicons name='search' color='white' size={20} style={styles.icon} />
               <TextInput placeholder='Search Menu' placeholderTextColor = 'white'   autoCapitalize='none' style={styles.input} />
             </Animatable.View>
@@ -46,35 +41,66 @@ export const Home = ({ navigation }) => {
         </Animatable.View>
         {/* Horizontal scroll category */}
           <Text style={styles.scrollText}>  Something New </Text>  
-          <View>
+          <View style = {styles.scrollCard}>
             <FlatList
-              data={CardList}
-              keyExtractor = {(item)=> {item.index}}
-              renderItem={({ item }) => <Card CardList={item} name = {item.name} image = {item.image} />}
+              data={Something}
+              keyExtractor = {(item) => item.key.toString()}
+              renderItem={({ item }) => <Card Something={item} key = {item.key} name = {item.name} image = {item.image} onPress = {()=> navigation.navigate('OrderMenu')} />}
               horizontal={true} style={styles.scrollables} showsHorizontalScrollIndicator={false} />
           </View>
 
         {/* Recommended Section */}
-        <View style = {styles.scrollz}>
-          <Text style= {styles.scrollText}>Recommended</Text>
+          <Text style= {styles.scrolltext}>Recommended</Text>
+        <View style={styles.scrollCard}>
+           <FlatList
+            data={Recommended}
+            decelerationRate = {0.5}
+            keyExtractor = {(item)=> item.index}
+            renderItem={({ item }) => <Card2 Recommmended={item} menu_name={item.menu_name} Ing1={ item.Ing1}  Ing2={ item.Ing2} image = {item.image} onPress = {()=> navigation.navigate('OrderMenu')} />}
+              horizontal={true} style={styles.scrollables} showsHorizontalScrollIndicator={false} />  
         </View>
-      </View>
+        {/* <View style={styles.scrollCard}>
+           <FlatList
+              data={Recommended}
+              keyExtractor = {(item)=> {item.index}}
+              renderItem={({ item }) => <Card Recommmended={item} name = {item.name} image = {item.image} />}
+              horizontal={true} style={styles.scrollables} showsHorizontalScrollIndicator={false} />
+        </View>
+        <View style={styles.scrollCard}>
+           <FlatList
+              data={Recommended}
+              keyExtractor = {(item)=> {item.index}}
+              renderItem={({ item }) => <Card Recommmended={item} name = {item.name} image = {item.image} />}
+              horizontal={true} style={styles.scrollables} showsHorizontalScrollIndicator={false} />
+        </View>
+        <View style={styles.scrollCard}>
+           <FlatList
+              data={Recommended}
+              keyExtractor = {(item)=> {item.index}}
+              renderItem={({ item }) => <Card Recommmended={item} name = {item.name} image = {item.image} />}
+              horizontal={true} style={styles.scrollables} showsHorizontalScrollIndicator={false} />
+        </View> */}
+      </ScrollView>
     )
   }
 }
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
+    height: Dimensions.get('window').height,
     flex: 1,
     backgroundColor: 'gray',
+    paddingBottom: 70,
+    marginTop: '2%'
 },
   mainView: {
     borderBottomColor: 'white',
     backgroundColor: 'grey',
     width: '100%',
-    height: '100%',
     flex: 0.24,
-    borderBottomRightRadius: 10,
-    borderBottomLeftRadius: 10
+    marginBottom: 0,
+    borderBottomRightRadius: 5,
+    borderBottomLeftRadius: 5
   },
   mainHeader: {
     width: '100%',
@@ -105,14 +131,6 @@ const styles = StyleSheet.create({
     marginTop: 0,
     paddingTop: 0
   },
-  scrollText: {
-    fontSize: 30,
-    marginTop: 85,
-    fontFamily: 'CevicheOne_400Regular',
-    color: 'black',
-    // lineHeight: 55
-
-  },
   icon: {
     paddingLeft: 5,
     paddingTop: 8
@@ -124,11 +142,11 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   input: {
-        color: 'white',
-        flex: 1,
-        paddingLeft: 9,
-        fontSize: 20,
-    },
+    color: 'white',
+    flex: 1,
+    paddingLeft: 9,
+    fontSize: 20,
+  },
   headerComp: {
     width: '100%',
     flexDirection: 'row',
@@ -149,6 +167,26 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'lightgray',
   },
+  scrollCard: {
+    width: Dimensions.get('window').width,
+    marginBottom: 0,
+    paddingHorizontal: 0,
+    paddingRight: 6.5
+
+    
+  },
+  scrollText: {
+    fontSize: 30,
+    marginTop: 20,
+    fontFamily: 'CevicheOne_400Regular',
+    color: 'black',
+  },
+  scrolltext: {
+    fontSize: 30,
+    marginTop: 15,
+    fontFamily: 'CevicheOne_400Regular',
+    color: 'black',
+  },
   scrollables: {
     width: '100%',
     marginTop: 10,
@@ -157,6 +195,7 @@ const styles = StyleSheet.create({
   },
   scrollz: {
     width: '100%',
-    marginTop: 20
+    marginTop: 0,
+    top: 0
   }
   })
