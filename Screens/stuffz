@@ -7,6 +7,12 @@ animation='fadeInUpBig'
    blue{default}: ''#05375a''
    dopeBrown: '#16170a'
 }
+color scheme = {
+  darkmode:{
+    #dee3de for light (white variant)
+    #1a2228 for dark
+  }
+}
  <Tab.Navigator
     //   activeColor="#e91e63"
     //   barStyle={{ backgroundColor: 'tomato' }}

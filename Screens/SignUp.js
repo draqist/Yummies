@@ -7,25 +7,26 @@ import {
     StyleSheet,
     Image,
     ImageBackground,
-    Pressable,
     ScrollView,
     TouchableOpacity,
-    KeyboardAvoidingView
     } from 'react-native'
 import Buttons from '../Components/Buttons/Buttons'
 import {FontAwesome} from '@expo/vector-icons'
 import { Feather } from '@expo/vector-icons'
 import * as Animatable from 'react-native-animatable'
+import { useFonts, CabinSketch_700Bold } from '@expo-google-fonts/cabin-sketch';
+import { ContrailOne_400Regular } from '@expo-google-fonts/contrail-one'
+import AppLoading from 'expo-app-loading';
 
 export const SignUp = ({ navigation }) => {
-    const anime1= 'slideInDown'
+    const anime1 = 'slideInDown'
     const anime = 'fadeInRight'
     
     const [details, setDetails] = useState({
         Username: '',
         Password: '',
         check_textInputChange: false,
-        secureTextEntry : true,
+        secureTextEntry: true,
     })
     const [details1, setDetails1] = useState({
         Username: '',
@@ -58,7 +59,7 @@ export const SignUp = ({ navigation }) => {
         })
     }
     const alert = () => {
-            if (passwordHandler1(val1)  === passwordHandler(val) ) { null } else { console.log('Password does not match')}
+        if (passwordHandler1(val1) === passwordHandler(val)) { null } else { console.log('Password does not match') }
         
     }
     const textInputChange = (val) => {
@@ -73,7 +74,7 @@ export const SignUp = ({ navigation }) => {
             setDetails({
                 ...details,
                 Username: val,
-                check_textInputChange:false
+                check_textInputChange: false
             })
         }
     }
@@ -89,133 +90,141 @@ export const SignUp = ({ navigation }) => {
             setDetails1({
                 ...details1,
                 Username: val1,
-                check_textInputChange1:false
+                check_textInputChange1: false
             })
         }
     }
-    return (
-        <Animatable.View style={styles.container} animation={anime1}  >
-            <StatusBar style="auto" />
-            <ImageBackground source={require('../assets/images/iresi.jpeg')} style={ styles.image }/>
-            <View style={styles.header}>
-                <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
-                    <View style={styles.back}>
-                    <FontAwesome
-                        name='arrow-left'
-                        size={25}
-                        color = 'white'
-                    />
-                </View>
-                </TouchableOpacity>
-            </View>
-            <Animatable.View style={styles.footer} animation = {anime} delay={500}  >
-             <Image source = {require('../assets/images/mpp.jpg')} style = {styles.image1} />
-                <View >
-                    <View style={styles.mainView}>
-                        <Text style={styles.text}>
-                            Create an account
-                        </Text>
-                        <Text style={styles.text2}> Enlighten your tatsebuds with us..... </Text>
-                    </View>
-                    <ScrollView style={styles.scrollable}>
-                    <Text style={styles.text1}> name </Text>
-                    <View style={styles.placeholders}>
-                        <FontAwesome
-                            name='user-o'
-                            color="#05375a"
-                            size= {20}
-                        />
-                            <TextInput placeholder='John Doe' style={styles.input}    autoCapitalize='none' onChangeText={(val) => textInputChange(val)} />
-                            {details.check_textInputChange ?
-                                <Animatable.View animation = 'bounceIn' >
-                                        <Feather name='check-circle'  color='green' size = {20} />          
-                                </Animatable.View>: null
-                            }
-                        
-                    </View>
-                   
-                    <Text style={styles.text1}> Email </Text>
-                    <View style={styles.placeholders}>
-                        <Feather
-                            name='mail'
-                            color="#05375a"
-                            size= {20}
-                        />
-                            <TextInput placeholder='JohnDoe@gmail.com' style={styles.input} autoCapitalize='none' onChangeText={(val1) => textInputChange1(val1)} />
-                            {details1.check_textInputChange1 ?
-                                <Animatable.View animation = 'bounceIn' >
-                                        <Feather name='check-circle'  color='green' size = {20} />          
-                                </Animatable.View>: null
-                            }
-                        
-                    </View>
-                   
-                        <Text style={styles.text1}> Password </Text>
-                    <View  style={styles.placeholders}>
-                        <Feather
-                            name='lock'
-                            color="#05375a"
-                            size= {20}
-                        />
-                            <TextInput placeholder='Your Password' style={styles.input} secureTextEntry={details.secureTextEntry ? true : false} autoCapitalize='none' onChangeText={(val) => passwordHandler(val)} />
-                            <TouchableOpacity onPress = {updateEye}>
-                                {details.secureTextEntry ?
-                                    <Feather
-                                        name='eye-off'
-                                        color='#05375a'
-                                        size={20} /> :
-                                    <Feather
-                                        name='eye'
-                                        color='#05375a'
-                                        size={20} />
-                                }
-                            </TouchableOpacity>
-                    </View>
-                        <Text style={styles.text1}> ConFirm Password </Text>
-                    <View  style={styles.placeholders}>
-                        <Feather
-                            name='lock'
-                            color="#05375a"
-                            size= {20}
-                        />
-                            <TextInput placeholder='Confirm Password' style={styles.input} secureTextEntry={details1.secureTextEntry ? true : false} autoCapitalize='none' onChangeText={(val1) => passwordHandler1(val1)} />
-                            <TouchableOpacity onPress = {updateEye1}>
-                                {details1.secureTextEntry ?
-                                    <Feather
-                                        name='eye-off'
-                                        color='#05375a'
-                                        size={20} /> :
-                                    <Feather
-                                        name='eye'
-                                        color='#05375a'
-                                        size={20} />
-                                }
-                            </TouchableOpacity>
-                    </View>
-                </ScrollView>
-            </View> 
-                 <View style={styles.buttonContainer}>
-                    <Buttons type='primary' content='Sign Up' onPress = {()=> navigation.navigate('LogIn')} />
-                    <View style={styles.contain}>
-                        <View style={styles.contain0} >
-                            <Text style = {styles.text3} >
-                                Already have an account?
-                            </Text>
+    const [loadedFonts] = useFonts({
+        CabinSketch_700Bold: CabinSketch_700Bold,
+        ContrailOne_400Regular: ContrailOne_400Regular
+    });
+    if (!loadedFonts) {
+        return <AppLoading />
+    } else {
+        return (
+            <Animatable.View style={styles.container} animation={anime1}  >
+                <StatusBar style="auto" />
+                <ImageBackground source={require('../assets/images/iresi.jpeg')} style={styles.image} />
+                <View style={styles.header}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Welcome')}>
+                        <View style={styles.back}>
+                            <FontAwesome
+                                name='arrow-left'
+                                size={25}
+                                color='white'
+                            />
                         </View>
-                    <View style={styles.container0} >
-                        <TouchableOpacity style = {styles.pressing} onPress = {() => navigation.navigate('LogIn')} >
-                            <Text style={styles.text4} >
-                                Log In
+                    </TouchableOpacity>
+                </View>
+                <Animatable.View style={styles.footer} animation={anime} delay={500}  >
+                    <Image source={require('../assets/images/mpp.jpg')} style={styles.image1} />
+                    <View >
+                        <View style={styles.mainView}>
+                            <Text style={styles.text}>
+                                Create an account
                             </Text>
-                        </TouchableOpacity>
-                    </View>
-                    </View>
+                            <Text style={styles.text2}> Enlighten your tatsebuds with us..... </Text>
+                        </View>
+                        <ScrollView style={styles.scrollable}>
+                            <Text style={styles.text1}> name </Text>
+                            <View style={styles.placeholders}>
+                                <FontAwesome
+                                    name='user-o'
+                                    color="#05375a"
+                                    size={20}
+                                />
+                                <TextInput placeholder='John Doe' style={styles.input} autoCapitalize='none' onChangeText={(val) => textInputChange(val)} />
+                                {details.check_textInputChange ?
+                                    <Animatable.View animation='bounceIn' >
+                                        <Feather name='check-circle' color='green' size={20} />
+                                    </Animatable.View> : null
+                                }
                         
-                </View> 
+                            </View>
+                   
+                            <Text style={styles.text1}> Email </Text>
+                            <View style={styles.placeholders}>
+                                <Feather
+                                    name='mail'
+                                    color="#05375a"
+                                    size={20}
+                                />
+                                <TextInput placeholder='JohnDoe@gmail.com' style={styles.input} autoCapitalize='none' onChangeText={(val1) => textInputChange1(val1)} />
+                                {details1.check_textInputChange1 ?
+                                    <Animatable.View animation='bounceIn' >
+                                        <Feather name='check-circle' color='green' size={20} />
+                                    </Animatable.View> : null
+                                }
+                        
+                            </View>
+                   
+                            <Text style={styles.text1}> Password </Text>
+                            <View style={styles.placeholders}>
+                                <Feather
+                                    name='lock'
+                                    color="#05375a"
+                                    size={20}
+                                />
+                                <TextInput placeholder='Your Password' style={styles.input} secureTextEntry={details.secureTextEntry ? true : false} autoCapitalize='none' onChangeText={(val) => passwordHandler(val)} />
+                                <TouchableOpacity onPress={updateEye}>
+                                    {details.secureTextEntry ?
+                                        <Feather
+                                            name='eye-off'
+                                            color='#05375a'
+                                            size={20} /> :
+                                        <Feather
+                                            name='eye'
+                                            color='#05375a'
+                                            size={20} />
+                                    }
+                                </TouchableOpacity>
+                            </View>
+                            <Text style={styles.text1}> ConFirm Password </Text>
+                            <View style={styles.placeholders}>
+                                <Feather
+                                    name='lock'
+                                    color="#05375a"
+                                    size={20}
+                                />
+                                <TextInput placeholder='Confirm Password' style={styles.input} secureTextEntry={details1.secureTextEntry ? true : false} autoCapitalize='none' onChangeText={(val1) => passwordHandler1(val1)} />
+                                <TouchableOpacity onPress={updateEye1}>
+                                    {details1.secureTextEntry ?
+                                        <Feather
+                                            name='eye-off'
+                                            color='#05375a'
+                                            size={20} /> :
+                                        <Feather
+                                            name='eye'
+                                            color='#05375a'
+                                            size={20} />
+                                    }
+                                </TouchableOpacity>
+                            </View>
+                        </ScrollView>
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <Buttons type='primary' content='Sign Up' onPress={() => navigation.navigate('LogIn')} />
+                        <View style={styles.contain}>
+                            <View style={styles.contain0} >
+                                <Text style={styles.text3} >
+                                    Already have an account?
+                                </Text>
+                            </View>
+                            <View style={styles.container0} >
+                                <TouchableOpacity style={styles.pressing} onPress={() => navigation.navigate('LogIn')} >
+                                    <Text style={styles.text4} >
+                                        Log In
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                        
+                    </View>
                
+                </Animatable.View>
             </Animatable.View>
-        </Animatable.View>
-)
+        )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -229,18 +238,21 @@ const styles = StyleSheet.create({
         top: 10
     },
     container0: {
-        // flex: 1,
-        width: '40%',
-        left: 200,
+        flexDirection: 'row-reverse',
+        width: '100%',
+        height: '100%',
         marginVertical: 9,
         marginHorizontal: 10,
     },
     pressing: {
+        marginTop: 10,
         height: 40,
+        width: 160,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 30,
-        backgroundColor: '#a73e13'
+        borderRadius: 10,
+        backgroundColor: '#a73e13',
+        
     },
     text4: {
         fontSize: 23,
@@ -283,6 +295,7 @@ const styles = StyleSheet.create({
         fontSize: 33,
         color: '#05375a',
         fontWeight: 'bold',
+        fontFamily: 'ContrailOne_400Regular'
     },
     mainView: {
         marginTop: 20,

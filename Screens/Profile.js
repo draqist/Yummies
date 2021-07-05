@@ -7,7 +7,7 @@ export const Profile = () => {
     return (
       <Animatable.View style={styles.container} animation= 'fadeInUpBig' >
         
-        <ImageBackground source={require('../assets/images/food.jpeg')} style={styles.image}/>
+        {/* <ImageBackground source={require('../assets/images/food.jpeg')} style={styles.image}/> */}
             <Text style = {styles.text}> Oh Hello </Text>
         </Animatable.View>
     )
@@ -16,7 +16,7 @@ export const Profile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },

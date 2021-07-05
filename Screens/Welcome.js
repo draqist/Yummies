@@ -5,11 +5,13 @@ import Center from './Center'
 import Buttons from '../Components/Buttons/Buttons'
 import * as Animatable from 'react-native-animatable'
 import { useFonts, CabinSketch_700Bold } from '@expo-google-fonts/cabin-sketch';
+import { ContrailOne_400Regular } from '@expo-google-fonts/contrail-one'
 import AppLoading from 'expo-app-loading';
 
 export const Welcome = ({ navigation }) => {
-    let loadedFonts = useFonts({
-        CabinSketch_700Bold
+    const [loadedFonts] = useFonts({
+        CabinSketch_700Bold: CabinSketch_700Bold,
+        ContrailOne_400Regular:ContrailOne_400Regular
     });
     if (!loadedFonts) {
         return <AppLoading />
@@ -19,7 +21,7 @@ export const Welcome = ({ navigation }) => {
                 <StatusBar style="auto" />
                 <ImageBackground source={require('../assets/images/jolof.png')} style={styles.image} />
                 <Center>
-                    <Text style={styles.text}> tubhub </Text>
+                    <Text style={styles.text}> Banwill </Text>
                 </Center>
                 <View style={styles.container}>
                     <Buttons type='primary' content='Log In' onPress={() => navigation.navigate('LogIn')} />
@@ -42,10 +44,10 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 70,
-        fontFamily: 'CabinSketch_700Bold',
+        fontFamily: 'ContrailOne_400Regular',
         fontWeight: 'bold',
         color: 'white',
-        textAlign: 'center',
+        // textAlign: 'center',
         textTransform: 'uppercase'
     },
     image: {
