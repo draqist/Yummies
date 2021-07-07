@@ -5,6 +5,7 @@ animation='fadeInUpBig'
    green: '#06575a',
    purple: 
    blue{default}: ''#05375a''
+   bluey: '#1a2338'
    dopeBrown: '#16170a'
 }
 color scheme = {

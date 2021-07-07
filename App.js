@@ -3,6 +3,12 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import firebase from 'firebase/app'
 import 'firebase/auth'
+
+import { Welcome } from './Screens/Welcome'
+import { LogIn } from './Screens/LogIn'
+import { SignUp } from './Screens/SignUp'
+import { NavBar } from './Screens/NavBar';
+
 const firebaseConfig = {
   apiKey: "AIzaSyDAsbbK65RmZejzxYcZrPQsUnXE7vQuoSw",
   authDomain: "the-real-tubhub.firebaseapp.com",
@@ -12,17 +18,6 @@ const firebaseConfig = {
   appId: "1:298434461931:web:705676392eb2e9815a3eae",
   measurementId: "G-R8XEJZWFWD"
 };
-
-import { Welcome } from './Screens/Welcome'
-import { LogIn } from './Screens/LogIn'
-import { SignUp } from './Screens/SignUp'
-import { NavBar } from './Screens/NavBar';
-import { OrderMenu } from './Screens/Search';
-import { Card } from './Components/CategoryCard/card';
-
-
-
-
 firebase.initializeApp(firebaseConfig)
 
 const Stack = createStackNavigator()

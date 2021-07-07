@@ -24,7 +24,7 @@ export const Something = [{
     }]
 export const Recommended = [{
     menu_name: 'Mixed Rice with Chicken   ',
-    image: require('../../assets/images/spehg.jpg'),
+    image: require('../../assets/images/iresi.jpeg'),
     Rating: '5',
     Ing2: 'Chicken',
     Ing1: 'Rice',
@@ -45,7 +45,7 @@ export const Recommended = [{
 
     }, {
         menu_name: 'Pasta with Fish',
-        image: require('../../assets/images/ramen.jpg'),
+        image: require('../../assets/images/spehg.jpg'),
         Rating: '4.9',
         Ing2: 'Chicken',
         Ing1: 'Rice',
@@ -55,7 +55,7 @@ export const Recommended = [{
     },
     {
         menu_name: 'Ofada with Fish',
-        image: require('../../assets/images/iresi.jpeg'),
+        image: require('../../assets/images/ramen.jpg'),
         Rating: '4.7',
         Ing2: 'Chicken',
         Ing1: 'Rice',

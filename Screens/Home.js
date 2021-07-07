@@ -12,7 +12,6 @@ import { CevicheOne_400Regular} from '@expo-google-fonts/ceviche-one'
 import {Card, Card2} from '../Components/CategoryCard/card'
 import { Something, Recommended } from '../Components/CategoryCard/Cardlist'
 import AppLoading from 'expo-app-loading';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
 
 let userName = 'Abdullah'
@@ -53,7 +52,7 @@ export const Home = ({ navigation }) => {
             <FlatList
               data={Something}
               keyExtractor = {item => item.key.toString()}
-              renderItem={({ item }) => <Card Something={item} key = {item.key} name = {item.name} image = {item.image} onPress = {()=> navigation.navigate('OrderMenu')} />}
+              renderItem={({ item }) => <Card Something={item} key = {item.key} name = {item.name} image = {item.image} onPress = {()=> navigation.push('OrderMenu')} />}
               horizontal={true} style={styles.scrollables} showsHorizontalScrollIndicator={false} />
           </View>
 
